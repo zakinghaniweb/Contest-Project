@@ -36,24 +36,19 @@ ul,ol{
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 #preloader h1 {
-    font-size: 24px;
+    font-size: 20px;
     color: #ece2ff;
     text-align: center;
     position: absolute;
     font-family: var(--brandFont);
-    /* text-shadow:
-    0 0 5px #BA55D3,
-    0 0 10px #BA55D3,
-    0 0 20px #BA55D3; */
     text-shadow:
     0 0 5px #BA55D3,
     0 0 10px #BA55D3,
     0 0 15px #BA55D3,
     0 0 20px #BA55D3,
     0 0 25px #BA55D3,
-    0 0 30px #BA55D3
-    ;
-    top: 60%;
+    0 0 30px #BA55D3;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
