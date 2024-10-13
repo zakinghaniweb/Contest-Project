@@ -20,8 +20,86 @@ ul,ol{
 }
 :root{
     --brandFont: 'Nunito', sans-serif;
+    --brandColor: #2FA0F5;
+    --card-height: 65vh;
+    --card-width: calc(var(--card-height) / 1.5);
 }
 /* ===== Common Css End ===== */
+/* ===== Background Css Start ===== */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(40deg, #6c00a2, #001152, #6c00a2);
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Bubble styles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .6;
+    filter: blur(90px);
+    animation: move 20s infinite linear;
+    box-shadow: 0 0 200px 100px;
+}
+.bubble1 {
+    width: 150px; height: 350px;
+    background: radial-gradient(circle at 30% 30%, #DB4BFD, rgba(255,0,255,0));
+    box-shadow: 0 0 300px 150px #DB4BFD;
+}
+.bubble2 {
+    width: 250px; height: 500px;
+    background: radial-gradient(circle at 30% 30%, #41C8FB, rgba(0,255,255,0));
+    box-shadow: 0 0 300px 150px #41C8FB;
+}
+.bubble3 {
+    width: 250px; height: 450px;
+    background: radial-gradient(circle at 30% 30%, #CD3B9C, rgba(255,204,0,0));
+    box-shadow: 0 0 300px 150px #CD3B9C;
+}
+.bubble4 {
+    width: 150px; height: 300px;
+    background: radial-gradient(circle at 30% 30%, #805CEE, rgba(255,102,0,0));
+    box-shadow: 0 0 300px 150px #805CEE;
+}
+.bubble5 {
+    width: 250px; height: 550px;
+    background: radial-gradient(circle at 30% 30%, #6699ff, rgba(102,153,255,0));
+    box-shadow: 0 0 300px 150px #6699ff;
+}
+.bubble6 {
+    width: 200px; height: 400px;
+    background: radial-gradient(circle at 30% 30%, #ff3366, rgba(255,51,102,0));
+    box-shadow: 0 0 300px 150px #ff3366;
+}
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(150px, -200px);
+    }
+    50% {
+        transform: translate(-200px, 250px);
+    }
+    75% {
+        transform: translate(250px, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+.bubble1 { top: 10%; left: 20%; animation-delay: 0s; }
+.bubble2 { top: 50%; left: 60%; animation-delay: 1s; }
+.bubble3 { top: 30%; left: 80%; animation-delay: 2s; }
+.bubble4 { top: 60%; left: 30%; animation-delay: 3s; }
+.bubble5 { top: 20%; left: 50%; animation-delay: 4s; }
+.bubble6 { top: 70%; left: 10%; animation-delay: 5s; }
+/* ===== Background Css End ===== */
 /* ===== Preloader Css Start ===== */
 #preloader {
     position: fixed;
@@ -36,7 +114,7 @@ ul,ol{
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 #preloader h1 {
-    font-size: 20px;
+    font-size: 18px;
     color: #ece2ff;
     text-align: center;
     position: absolute;
@@ -73,7 +151,7 @@ ul,ol{
     right: 5px;
     bottom: 5px;
     border-radius: 50%;
-    border: 5px solid transparent;
+    border: 4px solid transparent;
     border-top-color: #BA55D3;
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
@@ -86,7 +164,7 @@ ul,ol{
     right: 15px;
     bottom: 15px;
     border-radius: 50%;
-    border: 5px solid transparent;
+    border: 3px solid transparent;
     border-top-color: #FF00FF;
     animation: spin 1.5s linear infinite;
 }
@@ -99,3 +177,104 @@ ul,ol{
     }
 }
 /* ===== Preloader Css End ===== */
+/* ===== Modal Css Start ===== */
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+.modal-title{
+    color: #ffffff;
+}
+.modal-content{
+    background: #222222;
+    position: relative;
+}
+.modal-content::before {
+    content: "";
+    width: 104%;
+    height: 112%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -5%;
+    left: -2%;
+    animation: spinmodal 2.5s linear infinite;
+}
+.modal-content::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spinmodal 2.5s linear infinite;
+}
+@keyframes spinmodal {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+.input-group-custom{
+    width: 470px;
+    height: 50px;
+    background-color: #333333;
+    position: relative;
+    border-radius: 10px;
+    border: 3px solid var(--brandColor);
+}
+.input-group-custom input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    color: white;
+    font-family: var(--brandFont);
+    font-weight: 700;
+    padding-left: 20px;
+    font-size: 18px;
+}
+.modal-footer button{
+    background-color: var(--brandColor);
+    font-family: var(--brandFont);
+    font-weight: 600;
+}
+/* ===== Modal Css End ===== */
+/* ===== Navbar Css Start ===== */
+.main-menu{
+    background-color: #222222;
+    height: 90px;
+    transform: translateY(-90px);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.main-menu ul{
+    gap: 30px;
+}
+.main-menu ul li a{
+    color: #ffffff;
+    font-family: var(--brandFont);
+    font-weight: 700;
+}
+.main-menu ul li a:hover{
+    color: var(--brandColor);
+}
+/* ===== Navbar Css End ===== */
