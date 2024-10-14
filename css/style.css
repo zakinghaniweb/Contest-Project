@@ -111,7 +111,7 @@ ul,ol{
     background-color: #222;
     transform: scale(200%);
     z-index: 999999;
-    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 #preloader h1 {
     font-size: 18px;
@@ -119,6 +119,7 @@ ul,ol{
     text-align: center;
     position: absolute;
     font-family: var(--brandFont);
+    font-weight: 700;
     top: 50%;
     left: 50%;
     text-shadow:
@@ -180,7 +181,7 @@ ul,ol{
 /* ===== Modal Css Start ===== */
 @property --rotate {
     syntax: "<angle>";
-    initial-value: 132deg;
+    initial-value: 360deg;
     inherits: false;
 }
 .modal-title{
@@ -202,7 +203,7 @@ ul,ol{
     z-index: -1;
     top: -5%;
     left: -2%;
-    animation: spinmodal 2.5s linear infinite;
+    animation: spinmodal 2s linear infinite;
 }
 .modal-content::after {
     position: absolute;
@@ -221,7 +222,7 @@ ul,ol{
     , #5ddcff, #3c67e3 43%, #4e00c2);
     opacity: 1;
     transition: opacity .5s;
-    animation: spinmodal 2.5s linear infinite;
+    animation: spinmodal 2s linear infinite;
 }
 @keyframes spinmodal {
     0% {
@@ -276,5 +277,8 @@ ul,ol{
 }
 .main-menu ul li a:hover{
     color: var(--brandColor);
+}
+.nav-link:focus{
+    color: #0f5a94 !important;
 }
 /* ===== Navbar Css End ===== */

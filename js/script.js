@@ -20,7 +20,7 @@ window.onload = function() {
         setTimeout(function() {
             preloader.style.display = 'none';
         }, 500);
-    }, 2000);
+    }, 2500);
 };
 // ========= Preloader Js End ==========
 // ========= Navbar Js Start ==========
@@ -29,14 +29,26 @@ window.onload = function() {
 
 // ========= Navbar Js End ==========
 // ========= Modal Js Start ==========
+var modal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+    backdrop: 'static',
+    keyboard: false
+});
 var nameSubmitButton = document.querySelector('.nameSubmitButton');
 var userName = document.querySelector('.userName');
 var nameInput = document.querySelector('.nameInput');
+var nameInputGroup = document.querySelector('.input-group-custom');
 var menu = document.querySelector('.main-menu')
 nameSubmitButton.addEventListener('click', function() {
-    userName.innerHTML = nameInput.value;
-    setTimeout(function() {
-        menu.style = 'transform:translateY(0)';
-    },0)
+    if (nameInput.value == '') {
+        nameInputGroup.style = "border: 3px solid red";
+    } else {
+        userName.innerHTML = nameInput.value;
+        setTimeout(function() {
+            menu.style = 'transform:translateY(0)';
+        },0)
+        var modalElement = document.querySelector('#exampleModal');
+        var modalInstance = bootstrap.Modal.getInstance(modalElement);
+        modalInstance.hide();
+    }
 });
 // ========= Modal Js End ==========
